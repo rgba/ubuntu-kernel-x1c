@@ -515,6 +515,9 @@ bool psmouse_matches_pnp_id(struct psmouse *psmouse, const char * const ids[])
 	if (!fw_id_copy)
 		return false;
 
+	psmouse_err(psmouse, "****[X1C] Touchpad Firmware Id = %s *****\n",
+			     fw_id_copy);
+
 	save_ptr = fw_id_copy;
 	while ((p = strsep(&fw_id_copy, " ")) != NULL) {
 		if (psmouse_check_pnp_id(p, ids)) {
